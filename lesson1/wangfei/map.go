@@ -18,7 +18,7 @@ func maptest()  {
 	}
 
 	fmt.Println("geting values")
-	// key 为空的时候 会拿到一个空值 因为 zero values
+	// key 为空的时候 会拿到一个空值 因为 zero values.
 	name := s["name"]
 	fmt.Println(name)
  }
