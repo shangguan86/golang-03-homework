@@ -9,5 +9,5 @@ func main() { // go fmt
     fmt.Println("hello golang")
     // support Unicode
     fmt.Println("hello go语言")
-    fmt.Println("你好中国")
+    fmt.Println("你好，中国")
 }
