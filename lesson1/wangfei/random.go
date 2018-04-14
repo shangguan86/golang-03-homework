@@ -16,9 +16,16 @@ func generate_random(num int)  {
 	}
 }
 
+func get_random_name()  {
+	lst_name := [...]string{"a","b","c"}
+	rand := rand.New(rand.NewSource(time.Now().UnixNano()))
+	rand_num := rand.Intn(len(lst_name))
+	fmt.Println(lst_name[rand_num])
+}
 
 func main() {
 	generate_random(1)
+	get_random_name()
 }
 
 
