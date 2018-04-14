@@ -43,3 +43,4 @@ tags
 
 
 # End of https://www.gitignore.io/api/go,vim,linux
+/home/eddie/golang-03-homework/lesson1/Eddie/tmp/
