@@ -20,8 +20,9 @@ func main() {
 
     for i := 1; i < len(os.Args); i++ {
         // --i is illegal in Go
+        sep = "-"
         s += sep + os.Args[i]
-        sep = " "
+
     }
     fmt.Println(s)
 
