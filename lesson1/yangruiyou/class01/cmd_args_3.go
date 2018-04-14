@@ -17,6 +17,7 @@ func Joins(a []string, sep string) string {
 	}
 
 	n := len(sep) * (len(a) - 1)
+	fmt.Println(n)
 	for i := 0; i < len(a); i++ {
 		n += len(a[i])
 	}
