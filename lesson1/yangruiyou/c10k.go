@@ -13,8 +13,8 @@ func handle(conn net.Conn){
 
 
 func main(){
-	log.Println("start to listen on tcp port 9100")
-	l,err := net.Listen("tcp","9100")
+	log.Println("start to listen on tcp port 8080")
+	l,err := net.Listen("tcp","8080")
 	if err!=nil{
 		log.Fatal(err)
 	}
