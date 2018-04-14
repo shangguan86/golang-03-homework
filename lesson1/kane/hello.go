@@ -6,7 +6,8 @@ import "fmt"
 
 // the entrance
 func main() { // go fmt
-    fmt.Println("hello golang")
-    // support Unicode
-    fmt.Println("hello go语言")
+	myName := "kane"
+	fmt.Println("hello golang "+myName)
+	// support Unicode
+	fmt.Println("hello go语言")
 }
