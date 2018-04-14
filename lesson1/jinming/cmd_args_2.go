@@ -14,10 +14,9 @@ func main() {
 
     // slice s[m:n], 0<=m<=n<=len(s)
 
-    for _, arg := range os.Args[1:] {
+    for _, arg := range os.Args[:] {
         s += sep + arg
         sep = " "
     }
     fmt.Println(s)
-
 }

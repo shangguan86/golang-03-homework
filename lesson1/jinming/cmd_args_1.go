@@ -18,11 +18,11 @@ func main() {
     // infinite loop：
     // for {}
 
+    fmt.Println(len(os.Args))
+    sep = "-"
     for i := 1; i < len(os.Args); i++ {
         // --i is illegal in Go
-        sep = "-"
-        s += sep + os.Args[i]
-
+        s +=  sep + os.Args[i]
     }
     fmt.Println(s)
 
