@@ -2,13 +2,13 @@ package main
 
 import (
 	"net/http"
-	"fmt"
 	"log"
+	"fmt"
+	"math"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-
-	fmt.Fprintf(w, "hello world!")
+	fmt.Fprint(w, math.Pow10(2))
 }
 
 func main() {
