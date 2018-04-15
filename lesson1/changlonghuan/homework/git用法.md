@@ -2,7 +2,7 @@ git用法
 ===
 基础
 ---
-//设置自己的用户名和emmail<br>
+//设置自己的用户名和emmil<br>
 //--global参数是本地所有仓库都使用这个相同的配置，可以每个仓库不同。<br>
 git config --global user.name "xxx"<br>
 git config --global user.email "xxx@xxx"<br>
@@ -28,7 +28,7 @@ git pull<br>
 //提交更新到仓库<br>
 git push<br>
 <br>
-<br>
+
 进阶
 ---
 //恢复工作区的文件<br>
