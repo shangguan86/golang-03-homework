@@ -7,13 +7,13 @@ git用法
 git config --global user.name "xxx"<br>
 git config --global user.email "xxx@xxx"<br>
 <br>
-//clone一个仓库到本地工作区<br>
+//clone一个仓库到工作区<br>
 git clone github.com/xxx<br>
 <br>
 //把文件添加到暂存区<br>
 git add xxx<br>
 <br>
-//把文件提交到工作区<br>
+//把文件提交到当前分支<br>
 //-m参数是提交的说明<br>
 git commit -m "Descriptions"<br>
 <br>
@@ -23,7 +23,7 @@ git rm xxx<br>
 //显示仓库当前的状态<br>
 git status<br>
 <br>
-//更新当前的工作区<br>
+//更新当前的分支<br>
 git pull<br>
 //提交更新到仓库<br>
 git push<br>
