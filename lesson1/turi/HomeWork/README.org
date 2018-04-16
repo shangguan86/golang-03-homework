@@ -1,11 +1,1 @@
 #+TITLE: Git 常用命令使用笔记
-* 使用
-** git clone的使用
-
-   git clone 演示
-   [[./doc/imgs/ezgif-1-a4875ba951.gif]]
-
-
-
-
-
