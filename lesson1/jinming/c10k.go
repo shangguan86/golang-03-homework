@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"log"
 	"net"
+	"fmt"
 	"time"
+	"log"
 )
 
 func handle(conn net.Conn) {
@@ -19,7 +19,6 @@ func main() {
 		log.Fatal(err)
 	}
 	for {
-		log.Println("input to listen on tcp port 8080")
 		conn, err := l.Accept()
 		if err != nil {
 			log.Fatal(err)
