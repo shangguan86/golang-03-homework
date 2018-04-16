@@ -1,0 +1,22 @@
+//安装git
+
+
+#centos/redhat
+yum install -y git
+
+#mac
+brew install git
+
+
+#下载项目，需要提前注册github账号，并提交51reboot审核
+git clone https://github.com/51reboot/golang-03-homework
+
+
+#git pull 同步项目最新代码
+git pulll origin master
+
+#git push 提交三步
+git add .
+git commit -m 'comment'
+git push origin master
+
