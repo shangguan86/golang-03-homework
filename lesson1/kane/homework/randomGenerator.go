@@ -1,4 +1,4 @@
-package main
+package homework
 
 import (
 	"math/rand"
