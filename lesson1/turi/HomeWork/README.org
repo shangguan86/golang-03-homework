@@ -3,7 +3,7 @@
 ** git clone的使用
 
    git clone 演示
-   [[./docs/imgs/ezgif-1-a4875ba951.gif]]
+   [[./doc/imgs/ezgif-1-a4875ba951.gif]]
 
 
 
