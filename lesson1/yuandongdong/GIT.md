@@ -1,5 +1,5 @@
-#Git 学习#  
-##使用Github##  
+# Git 学习  
+## 使用Github  
 1.安装配置git  
 从官网下载git，安装，进行初始化设置  
 >    git config --global user.name "My Name"  
