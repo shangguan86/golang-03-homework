@@ -86,3 +86,24 @@ Total 8 (delta 5), reused 0 (delta 0)
 remote: Resolving deltas: 100% (5/5), completed with 3 local objects.
 To https://github.com/51reboot/golang-03-homework
    b83f73e..c84424b  master -> master
+
+
+
+11、 删除一个文件
+
+[root@VM_0_14_centos homework]# git rm git_use_notes.go 
+rm 'lesson1/wangning/homework/git_use_notes.go'
+
+12、文件改名，并进行重新提交
+[root@VM_0_14_centos homework]# mv git_use_notes.go  git_use_README.txt
+[root@VM_0_14_centos homework]# git add git_use_README.txt
+[root@VM_0_14_centos homework]# git commit -m "upload git use README file"
+[master 987f404] upload git use README file
+ 2 files changed, 88 insertions(+)
+ create mode 100644 lesson1/wangning/homework/git_use_README.txt
+ delete mode 100644 lesson1/wangning/homework/git_use_notes.go
+
+
+13、重复之前的提交步骤
+
+......
