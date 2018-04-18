@@ -19,6 +19,7 @@ func main() {
     // for {}
 
     fmt.Println(len(os.Args))
+    fmt.Println(os.Args)
     sep = "-"
     for i := 1; i < len(os.Args); i++ {
         // --i is illegal in Go
