@@ -15,7 +15,7 @@ NOTE:
 | git pull      | 拉回远程版本库的最新版本  |
 | git branch    | 查看分支信息              |
 | git config    | 配置相关信息              |
-| git rm        | 删除暂存区和工作区文件    |        |
+| git rm        | 删除暂存区和工作区文件    |
 | git diff      | 查看尚未暂存的更新内容    |
 | git status    | 查看当前暂存区和工作区状态|
 | git log       | 查看提交日志              |
