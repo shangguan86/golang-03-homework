@@ -23,7 +23,7 @@ NOTE:
 | git log       | 查看提交日志              |
 | git checkout  | 切换分支                  |
 
-*** 一、新进代码库
+*** 一、新建代码库
 
 #+BEGIN_SRC git
 #在当前目录新建一个Git代码库
@@ -36,6 +36,23 @@ git init [project-name]
 git clone [url]
 
 #+END_SRC
+
+*** 二、配置
+    Git的设置文件为.gitconfig,它可以在用户主目录下(全局配置),也可以在项目目录下(项目配置)。
+
+#+BEGIN_SRC git
+#显示当前的Git配置
+git config --list
+
+#编辑Git配置文件
+git config -e [--global]
+
+#设置提交代码时的用户信息
+git config [--global] user.name "[name]"
+git config [--global] user.email "[email address]"
+
+#+END_SRC
+
 
 
 
