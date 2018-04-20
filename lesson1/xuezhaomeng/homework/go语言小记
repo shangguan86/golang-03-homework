@@ -1,0 +1,64 @@
+#环境准备
+wget https://storage.googleapis.com/golang/go1.4.3.src.tar.gz   --no-check-certificate 
+tar -zxvf  go1.4.3.src.tar.gz
+mv  go  go1.4
+cd go1.4/src
+./make.bash
+
+wget https://storage.googleapis.com/golang/go1.8.3.src.tar.gz  --no-check-certificate
+tar -zxvf  go1.8.3.src.tar.gz
+mv  go  go1.8
+cd go1.8/src
+export   GOROOT_BOOTSTRAP=/home/local/go1.4
+./make.bash
+
+#配置环境变量
+export  GOROOT=/home/local/go
+export  GOPATH=/home/go
+export  PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+#打开自带的文档
+godoc   -http=:9000
+
+#go结构
+#package 关键字放在程序第一行
+#有且只有一个main函数,函数使用func表示
+#通过关键字import 来引入其他package,多个可以(),引入没有使用会报错
+
+#直接允许go
+go  run   hello.go
+
+#编译成二进制或exe
+go build  hello.go
+
+##直接允许go
+go  run   hello.go
+
+#编译成二进制或exe
+go build  hello.go
+
+#跨平台编译
+GOOS=linux  go  build -o  hello.linux hello.go
+GOOS=windows go build -o  hello.exe hello.go
+GOOS=darwin  go build -o  hello.mac hello.go
+
+#代码格式化,-w为保存
+gofmt  -w  hello.go
+
+#自动import,-w为保存
+goimports  -w  hello.go
+
+#下载github项目
+go get -d github.com/51reboot/golang-03-homework
+
+#git代码提交
+git  add  file
+git commit -m "file desc"
+git pull
+git push
+
+#定义一个变量
+var b  int 
+
+#快速赋值
+b := 1
