@@ -15,3 +15,21 @@ var s1  = "hello, world!"
     p := &a
     *p = 20
 ```
+#### 引用传递
+```
+    var p string
+    flag.StringVar(&p, "f", "./pointer.go","input")
+```
+#### Flag
+```
+    flag.BoolVar(&newlineMark, "n", false, "input")
+    入参要用等号
+    go run flag.go -n=false
+```
+#### 垃圾回收
++ 标记-清除
++ 标记-整理
++ 并行的标记-清除、整理
+
+###### 分代gc
+###### 内存碎片
