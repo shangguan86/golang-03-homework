@@ -4,6 +4,6 @@
 
 git pull origin master
 git add --all
-git commit -m 'go cat command'
+git commit -m 'go pointer'
 git push origin master
 
