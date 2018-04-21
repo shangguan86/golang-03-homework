@@ -29,6 +29,6 @@ func main() {
 	v1 = 100
 	v2 = "hi"
 	v3 = 10.0
-	fmt.Printf("%v\t%v\t%v\t", v1, v2, v3)
-	
+	fmt.Printf("%v\t%v\t%.2f\t", v1, v2, v3)
+
 }
