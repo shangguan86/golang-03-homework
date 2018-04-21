@@ -1,5 +1,10 @@
 second lesson
-lalal
-lalla
-la
-lalll
+=============
+
+
+```
+s := "hello, world!"
+var s1 string  = "hello, world!"
+// 类型推断
+var s1  = "hello, world!"
+```
