@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"log"
 )
 
 func printFile(name string) {
@@ -18,5 +19,8 @@ func printFile(name string) {
 func main() {
 	filePath := flag.String("f", "", "file path")
 	flag.Parse()
+	if *filePath == "" {
+		log.Fatal("need -f flag")
+	}
 	printFile(*filePath)
 }
