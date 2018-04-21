@@ -16,7 +16,7 @@ func printFile(name string) {
 }
 
 //TODO:flag.Parse()
-//读flag参数
+//通过flag.Args读取filename
 func Parse() string {
 	flag.Parse()
 	args := flag.Args()
