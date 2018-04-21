@@ -56,6 +56,7 @@ func main() {
 	ch := make(chan benchResult)
 	pn := flag.Int("n", 0, "n count")
 	flag.Parse()
+	*pn = *pn + 1
 	// use a timer to prevent long time waiting
 	go bench(fibRecu, *pn, ch, "Recursion")
 	go bench(fibIter, *pn, ch, "Iteration")
