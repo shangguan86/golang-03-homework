@@ -9,7 +9,7 @@ func main() {
 
 	fmt.Println("before assign ,p:", p)   //取指针p的地址
 	fmt.Println("before assign ,*p:", *p) //取指针p指向的值
-	fmt.Println("before assign ,&p:", &p) //?
+	fmt.Println("before assign ,&p:", &p) //取指针的地址
 
 	//*p = 100
 
