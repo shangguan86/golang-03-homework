@@ -20,6 +20,10 @@ func printFile(name string) {
 func Parse() string {
 	flag.Parse()
 	args := flag.Args()
+	if len(args) != 1 {
+		fmt.Println("no argument or more than one argument")
+		return ""
+	}
 	return args[0]
 }
 
