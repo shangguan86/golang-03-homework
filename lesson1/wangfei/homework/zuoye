@@ -14,3 +14,7 @@ git push origin master  #把本地master分支的最新修改推送至GitHub
 git add .   #添加文件
 git commit -m "说明"  #添加说明
 
+添加远程仓库
+git init
+git remote add origin https://github.com/51reboot/golang-03-homework.git
+
