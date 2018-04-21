@@ -1,4 +1,4 @@
-package go_flag
+package main
 
 import (
 	"os"
