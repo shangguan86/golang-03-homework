@@ -13,7 +13,6 @@ func init() {
 func main()  {
 	flag.Parse()
 	printFile(filePath)
-
 }
 
 func printFile(name string)  {
@@ -25,7 +24,6 @@ func printFile(name string)  {
 		return
 	}
 
-	fmt.Println(buf)
-
+	fmt.Println(string(buf))
 
 }
