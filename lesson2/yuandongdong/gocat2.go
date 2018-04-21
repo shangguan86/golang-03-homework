@@ -16,14 +16,15 @@ func printFile(name string) {
 }
 
 //TODO:flag.Parse()
-//读取-f参数
+//读flag参数
 func Parse() string {
-	fname := flag.String("f", "", "file name")
 	flag.Parse()
-	if fname == nil {
-		fmt.Println("no argument")
+	args := flag.Args()
+	if len(args) != 1 {
+		fmt.Println("no argument or more than one argument")
+		return ""
 	}
-	return *fname
+	return args[0]
 }
 
 func main() {
