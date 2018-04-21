@@ -1,4 +1,4 @@
-#go note
+#go note 2018/4/21
 
 
 ##go程序结构
@@ -18,6 +18,19 @@ import (
 ##go代码风格
 -  go fmt -m 'xxx.go'
 
+
+##常见的包
+
+- strings
+
+- strconv
+> 提供可以在字符串和其他类型的数据之间转换的函数
+
+- regexp
+> 正则表达式引擎
+
+- flag
+> 解析命令行参数
 
 ##指针
 - *T即为类型T的指针
