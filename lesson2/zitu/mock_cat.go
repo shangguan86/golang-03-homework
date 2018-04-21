@@ -1,9 +1,9 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io/ioutil"
-	"os"
 )
 
 func printFile(name string) {
@@ -16,5 +16,7 @@ func printFile(name string) {
 }
 
 func main() {
-	printFile(os.Args[1])
+	filePath := flag.String("f", "", "file path")
+	flag.Parse()
+	printFile(*filePath)
 }
