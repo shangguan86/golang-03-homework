@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'go fib'
+git commit -m 'pointer.go comment'
 git push origin master
 
