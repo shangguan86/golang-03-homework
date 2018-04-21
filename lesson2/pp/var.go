@@ -22,11 +22,13 @@ func main() {
         v1 int 
         v2 string
         v3 float64
+        v4 bool
     )
 
     v1 = 1
     v2 = "abc"
-    v3 = 2.0
-    fmt.Printf("%v\t%v\t%.1f\t", v1, v2, v3)
+    v3 = 2.1
+    v4 = true
 
+    fmt.Printf("%d\t%s\t%v\t%t\n", v1, v2, v3, v4)
 }
