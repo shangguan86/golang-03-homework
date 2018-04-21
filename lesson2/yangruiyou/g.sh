@@ -2,5 +2,5 @@
 
 git pull origin master
 git add --all
-git commit -m 'go structure'
+git commit -m 'go cat command'
 git push origin master
