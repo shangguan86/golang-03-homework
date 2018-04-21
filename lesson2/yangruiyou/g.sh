@@ -3,7 +3,7 @@
 
 
 git pull origin master
-git add --all
+git add .
 git commit -m 'go pointer'
 git push origin master
 
