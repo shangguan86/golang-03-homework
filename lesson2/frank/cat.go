@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"log"
 )
 
 func printFile(name string) {
@@ -17,10 +16,8 @@ func printFile(name string) {
 }
 
 func main() {
-	filePath := flag.String("f", "", "file path")
+	fileName := flag.String("name", "cat.go", "the filename you want to input")
 	flag.Parse()
-	if *filePath == "" {
-		log.Fatal("need -f flag")
-	}
-	printFile(*filePath)
+	printFile(*fileName)
+
 }
