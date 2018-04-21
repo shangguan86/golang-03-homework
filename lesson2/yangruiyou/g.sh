@@ -1,6 +1,9 @@
 #!/bin/bash
+#comment:use push code
+
 
 git pull origin master
-git add --all
-git commit -m 'go cat command'
+git add .
+git commit -m 'go pointer'
 git push origin master
+
