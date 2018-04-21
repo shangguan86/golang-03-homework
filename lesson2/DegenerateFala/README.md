@@ -1,1 +1,1 @@
-# This is lession 2 for Degenerate.Fala
+# This is lesson 2 for Degenerate.Fala
