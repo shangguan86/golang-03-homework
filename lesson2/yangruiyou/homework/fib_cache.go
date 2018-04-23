@@ -1,26 +1,25 @@
 package main
 
-import (
-	"fmt"
-	"flag"
-)
+import "fmt"
 
-func fib(n int) int {
+func fib(n int64, caches map[int64]int64) int64 {
 
+	if cache, ok := caches[n]; ok {
+		return cache
+	}
 	if n <= 1 {
 		return 1
 	} else {
-		return fib(n-1) + fib(n-2)
+		caches[n] = fib(n-1, caches) + fib(n-2, caches)
+		//fmt.Println(caches[n])
+		return caches[n]
 	}
 
 }
 
 func main() {
-
-	var num int
-	flag.IntVar(&num, "n", 0, "number of steps")
-	flag.Parse()
-
-	fmt.Printf("fib(%v) is :%v \n", num, fib(num))
-
+	fmt.Println("Cache impore,fib fast calculate.")
+	cache := map[int64]int64{0: 0}
+	fmt.Println(fib(50, cache))
+	fmt.Println(fib(20, map[int64]int64{0: 0}))
 }
