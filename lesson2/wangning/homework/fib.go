@@ -47,12 +47,16 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("-----recursion:BEGIN Time:%s-----\n", NowTime())
+	t1 := time.Now()
+	fmt.Printf("recursion\nBEGIN Time:%s\n", NowTime())
 	fmt.Printf("Return Value is: %d\n", fib(num))
-	fmt.Printf("-----recursion:END Time:%s-----\n", NowTime())
+	fmt.Printf("END Time:%s\n", NowTime())
+	fmt.Printf("Fib recursion method run time:[%s]\n", time.Since(t1))
+	fmt.Println("====================")
 	fmt.Println()
-	fmt.Println()
-	fmt.Printf("-----No recursion:BEGIN Time:%s-----\n", NowTime())
+	t2 := time.Now()
+	fmt.Printf("sequence\nBEGIN Time:%s\n", NowTime())
 	fmt.Printf("Return Value is: %d\n", fib1(num))
-	fmt.Printf("-----No recursion:END Time:%s-----\n", NowTime())
+	fmt.Printf("END Time:%s\n", NowTime())
+	fmt.Printf("Fib sequence method run time:[%s]\n", time.Since(t2))
 }
