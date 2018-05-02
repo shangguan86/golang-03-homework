@@ -1,31 +1,46 @@
 package main
 
 import (
-	"os"
+	"flag"
 	"fmt"
-	"strconv"
+	"time"
 )
 
 func main() {
-	if len(os.Args) != 2 {
-		fmt.Println("input invaild args")
-		return
+	var num int
+	flag.IntVar(&num, "n", 0, "The steps")
+	flag.Parse()
+
+	if num <= 0 {
+		fmt.Println("Error")
 	}
+	start := time.Now()
+	var ways = fib(num)
+	fmt.Println("递归的结果", ways)
+	elapsed := time.Since(start)
 
-	inputSteps,err:=strconv.ParseInt(os.Args[1],10, 62)
+	//输出执行时间。
+	fmt.Println("递归时间", elapsed)
 
-	if err != nil{
-		fmt.Println(err)
-		return
+	var i int
+	var first int = 1
+	var second int = 2
+	start1 := time.Now()
+	for i = 1; i < num; i++ {
+		first, second = step(first, second)
 	}
-
-	fmt.Println(inputSteps)
-
-	//if os.Args[1] == "1" {
-	//	fmt.Println('1')
-	//}
+	elapsed1 := time.Since(start1)
+	//输出执行时间。
+	fmt.Println("迭代时间 ", elapsed1)
+	fmt.Println("循环的结果", first)
+}
+func step(first int, second int) (int, int) {
+	return second, second + first
 }
 
-func step() {
-
+func fib(n int) int {
+	if n <= 2 {
+		return n
+	}
+	return fib(n-1) + fib(n-2)
 }

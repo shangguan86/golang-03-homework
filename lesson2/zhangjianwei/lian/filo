@@ -1,0 +1,15 @@
+package main
+
+import (
+	"fmt"
+	"flag"
+)
+
+func main(){
+	//返回的是字符串指针
+	                  //命令行标识
+	var file =  flag.String("f","./b.go","the file name")
+	flag.Parse()
+	//fmt.Println("123")
+	fmt.Println("the file name is",*file)
+}
