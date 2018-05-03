@@ -19,8 +19,9 @@ func printFile(name string) {
 // END OMIT
 func main() {
 	var fileName string
-	flag.StringVar(&fileName, "fileName", "default fileName", "help msg for fileName")
+	flag.StringVar(&fileName, "f", "default fileName", "help msg for fileName")
 	flag.Parse()
+	fmt.Println(len(flag.Args()))
 	for i, v := range flag.Args() {
 		fmt.Println(i, v)
 		printFile(v)

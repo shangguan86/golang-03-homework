@@ -7,7 +7,7 @@ import (
 )
 
 func fib(n int) int {
-	if n <= 2 {
+	if n < 2 {
 		return n
 	}
 	return fib(n-1) + fib(n-2)
@@ -22,7 +22,6 @@ func main() {
 		var f = fib(i)
 		endTime := time.Now()
 		useTime := endTime.Sub(startTime)
-		fmt.Printf("台阶数是 %d 可以有: %d 种走法.\n", i, f)
-		fmt.Printf("计算耗时是: %s\n", useTime)
+		fmt.Printf("台阶数是 %d 可以有: %d 种走法. 计算耗时是：%s\n", i, f, useTime)
 	}
 }
