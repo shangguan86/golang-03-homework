@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'pointer.go comment'
+git commit -m 'md homework'
 git push origin master
 
