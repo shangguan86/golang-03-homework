@@ -12,6 +12,8 @@ func printFile(name string) {
 		fmt.Println(err)
 		return
 	}
+	fmt.Println(buf)
+	fmt.Printf("%U", 10)
 	fmt.Println(string(buf))
 }
 
@@ -27,6 +29,7 @@ func Parse() string {
 }
 
 func main() {
-	printFile(Parse())
+	f := Parse()
+	printFile(f)
 
 }
