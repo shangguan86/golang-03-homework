@@ -3,6 +3,7 @@ package main
 import (
     "fmt"
     "unsafe"
+    "reflect"
 )
 
 func main() {
@@ -16,4 +17,5 @@ func main() {
     )
 
     fmt.Printf("v1 is %d, size: %d\n", v1, unsafe.Sizeof(v1))
+    fmt.Println(reflect.TypeOf(v1))
 }
