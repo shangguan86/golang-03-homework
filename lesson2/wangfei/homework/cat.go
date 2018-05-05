@@ -17,7 +17,7 @@ func printFile(filename string) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(buf)
+	fmt.Println(string(buf))
 }
 
 // TODO: flag:Parse() 读取命令行参数 -h help, -f filename 接收-f 代表文件名
