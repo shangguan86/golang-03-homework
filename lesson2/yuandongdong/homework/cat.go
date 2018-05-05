@@ -15,16 +15,20 @@ func printFile(fname string) {
 		fmt.Println(err)
 		return
 	}
-
+//记得关闭文件句柄
+defer f.Close()
 	r := bufio.NewReader(f)
 	for {
 		buf, _, err := r.ReadLine()
-		if err == io.EOF {
-			return
-		} else if err != nil {
-			fmt.Println(err)
-			return
-		}
+	//	if err == io.EOF {
+	//		return
+	//	} else if err != nil {
+	//		fmt.Println(err)
+	//		return
+	//	}
+      if err != nil {
+            break
+        }
 		fmt.Println(string(buf))
 
 	}

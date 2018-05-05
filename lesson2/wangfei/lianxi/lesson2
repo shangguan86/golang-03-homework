@@ -1,1 +1,10 @@
-1
+
+### lsesson2作业
+* 完善cat功能
+* 斐波那契 递归和循环
+* 整理指针的笔记 对照老师的程序 写注释和自己的理解
+
+#### 作业整理
+1.代码gofmt风格,`gofmt -w xx.go`来格式化代码
+2.package,一种是库package，一种是二进制package,二进制package使用 main 来表示，库package的名字跟go文件所在的目录名一样
+二进制package 引入`package main`,其他的库package通过import引入
