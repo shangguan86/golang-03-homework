@@ -22,5 +22,5 @@ func main() {
 	cache := map[int64]int64{0: 0}
 	fmt.Println(fib(50, cache))
 	//	fmt.Println(fib(20, map[int64]int64{0: 0}))
-	fmt.Println(fib(50, cache))
+	fmt.Println(fib(100, cache))
 }
