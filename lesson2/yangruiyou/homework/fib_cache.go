@@ -1,7 +1,7 @@
 package main
 
 import "fmt"
-
+import "time"
 func fib(n int64, caches map[int64]int64) int64 {
 
 	if cache, ok := caches[n]; ok {
@@ -21,5 +21,6 @@ func main() {
 	fmt.Println("Cache impore,fib fast calculate.")
 	cache := map[int64]int64{0: 0}
 	fmt.Println(fib(50, cache))
-	fmt.Println(fib(20, map[int64]int64{0: 0}))
+//	fmt.Println(fib(20, map[int64]int64{0: 0}))
+	fmt.Println(fib(50, cache))
 }
