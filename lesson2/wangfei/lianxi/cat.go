@@ -1,31 +1,37 @@
 package main
 
 import (
-	"io/ioutil"
-	"fmt"
-	"os"
 	"flag"
+	"fmt"
+	"io/ioutil"
+	"os"
 )
 
-func printFile(name string) {
-	buf, err := ioutil.ReadFile(name)
+func usage1() {
+	fmt.Fprintf(os.Stderr, `[-h help] [-f filename]  Options:`)
+	flag.PrintDefaults()
+}
+
+func printFile(filename string) {
+	buf, err := ioutil.ReadFile(filename)
 	if err != nil {
 		fmt.Println(err)
 	}
 	fmt.Println(buf)
 }
 
-func cat_all() {
-	filename := os.Args[1]
-	fmt.Println(filename)
-	//printFile(filename)
-}
-
 // TODO: flag:Parse() 读取命令行参数 -h help, -f filename 接收-f 代表文件名
 func main() {
-	cat_all()
-	res := flag.Args()
-	fmt.Println(res)
-	var ip = flag.Int("flagname", 1234, "help message for flagname")
-	fmt.Println(ip)
+
+	var h = flag.Bool("h", true, "查看帮助")
+	if *h {
+		usage1()
+	}
+
+	var filename = flag.String("f", "", "指定文件名字")
+	flag.Parse()
+	if *filename != "" {
+		printFile(*filename)
+	}
+
 }
