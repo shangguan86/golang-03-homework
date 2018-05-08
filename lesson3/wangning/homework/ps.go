@@ -11,6 +11,11 @@ import (
 
 func main() {
 	// linux: /proc, 其他系统自己创建个模拟目录
+	args := os.Args
+	if len(args) < 2 {
+		fmt.Println("Args is Not")
+		os.Exit(1)
+	}
 	path := os.Args[1]
 	f, _ := os.Open(path)
 
