@@ -29,8 +29,8 @@ func fibloop(n int) int {
 }
 func main() {
 	var num1, num2 int
-	flag.IntVar(&num1, "n", 10, "输入number1")
-	flag.IntVar(&num2, "m", 10, "输入number2")
+	flag.IntVar(&num1, "n", 10, "输入number1[递归方式]")
+	flag.IntVar(&num2, "m", 10, "输入number2[迭代方式]")
 	flag.Parse()
 
 	fmt.Printf("递归方式:\n  %d的fib结果为：%d\n", num1, fib(num1))
