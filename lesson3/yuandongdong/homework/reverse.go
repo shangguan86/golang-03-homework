@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 func reverse(str string) string {
-	if len(str) < 1 {
+	if len(str) < 2 {
 		return str
 	}
 
@@ -21,7 +22,12 @@ func reverse(str string) string {
 }
 
 func main() {
-	str := "vim-go"
+	if len(os.Args) != 2 {
+		fmt.Println("请输入一个字符串，你输入的参数是：", os.Args[1:])
+		return
+	}
+
+	str := os.Args[1]
 	fmt.Println("Source string: ", str)
-	fmt.Println("Reversed string: ", reverse("vim-go"))
+	fmt.Println("Reversed string: ", reverse(str))
 }
