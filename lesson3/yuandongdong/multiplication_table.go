@@ -12,7 +12,8 @@ func main() {
 		for j := 1; j <= i; j++ {
 			fmt.Fprintf(f, "%d * %d = %2d ", i, j, i*j)
 		}
-		fmt.Fprintf(f)
+		fmt.Fprintf(f, "\n")
+		//		fmt.Fprintln(f)
 	}
 
 	f.Close()

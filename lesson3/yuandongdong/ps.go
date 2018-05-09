@@ -9,16 +9,9 @@ import (
 )
 
 func main() {
-
-	if len(os.Args) != 2 {
-		fmt.Println("请输入文件路径，你输入的参数是：", os.Args[1:])
-		return
-	}
-
 	// linux: /proc, 其他系统自己创建个模拟目录
 	path := os.Args[1]
 	f, _ := os.Open(path)
-	defer f.Close()
 
 	infos, err := f.Readdir(-2)
 	if err != nil {
@@ -39,6 +32,7 @@ func main() {
 			// 作业: 读取filename里的命令, 打印 pid, cmd
 			//
 			f, _ := ioutil.ReadFile(filename)
+			//			defer f.Close()
 			cmd := string(f)
 			fmt.Printf("%v\t%v\n", info.Name(), cmd)
 		}
