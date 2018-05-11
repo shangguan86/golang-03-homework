@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'reverse'
+git commit -m 'ps'
 git push origin master
 
