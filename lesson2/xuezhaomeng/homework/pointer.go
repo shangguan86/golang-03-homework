@@ -19,7 +19,7 @@ func main() {
 
 
     // 修改指针所指向的数据 #1
-    *p = 20 //修改指针p的值，实际是修改其所在的地址上的值,a和p公用一个地址
+    *p = 20 //修改指针p的值，实际是修改其所在的地址上的值,p 指向变量a的地址
     fmt.Println("After assignment, *p: ", *p) //取p得内容，实际上是取p所指地址的值
     fmt.Println("After assignment, p: ", p)
     fmt.Println("After assignment, &a: ", &a)
@@ -27,7 +27,7 @@ func main() {
 
 
     // 直接修改值
-    a = 30 //修改指针a的值，实际是修改其所在的地址上的值,p和a公用一个地址
+    a = 30 //修改指针a的值，实际是修改其所在的地址上的值,p 指向变量a的地址
     fmt.Println("After assignment, *p: ", *p) 
     fmt.Println("After assignment, p: ", p)
     fmt.Println("After assignment, &a: ", &a)

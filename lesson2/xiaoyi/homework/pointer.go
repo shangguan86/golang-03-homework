@@ -12,7 +12,7 @@ func main() {
 	var p = &a	//获取 a 的内存地址并赋值给变量p;
 
 	fmt.Println("Before assignment, *p: ", *p)	// 打印结果为 10;
-	fmt.Println("Before assignment, p: ", p)		// 打印结果为 a 的内存地址;
+	fmt.Println("Before assignment, p: ", p)	// 打印结果为 a 的内存地址;
 	fmt.Println("Before assignment, &a: ", &a)	// 打印结果为 a 的内存地址;
 	fmt.Println()
 
