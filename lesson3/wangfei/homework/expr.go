@@ -34,7 +34,7 @@ func main() {
 	case "/":
 		//go run expr.go 2 \* 2,需要转义
 		if n2 == 0 {
-			fmt.Println("分母不能为0")
+			fmt.Println("分母不能为0 ")
 		} else {
 			fmt.Printf("%d\n", n1/n2)
 		}
