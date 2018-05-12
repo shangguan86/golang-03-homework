@@ -1,10 +1,10 @@
 package main
 
 import (
-	"os"
-	"strconv"
 	"fmt"
 	"log"
+	"os"
+	"strconv"
 )
 
 func main() {
@@ -12,9 +12,7 @@ func main() {
 	op := os.Args[2]
 	s2 := os.Args[3]
 
-	//string转换成Int
 	n1, err := strconv.Atoi(s1)
-	//fmt.Println(reflect.TypeOf(n1))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -26,20 +24,18 @@ func main() {
 
 	switch op {
 	case "+":
-		fmt.Printf("%d\n", n1+n2)
+		fmt.Println("a+b=", n1+n2)
 	case "-":
-		fmt.Printf("%d\n", n1-n2)
+		fmt.Println("a-b=", n1-n2)
 	case "*":
-		fmt.Printf("%d\n", n1*n2)
+		fmt.Println("a*b=", n1*n2)
 	case "/":
-		//go run expr.go 2 \* 2,需要转义
 		if n2 == 0 {
-			fmt.Println("分母不能为0 ")
-		} else {
-			fmt.Printf("%d\n", n1/n2)
+			log.Fatal("divide by zero")
 		}
-
+		fmt.Println("a/b=", n1/n2)
 	default:
-		fmt.Println("error")
+		fmt.Println("nothing")
 	}
+
 }
