@@ -9,10 +9,10 @@ import (
 
 func main() {
 	//data := []byte("123456789")
-	data := os.Args[1]
-	f, _ := ioutil.ReadFile(data)
+	data := []byte(os.Args[1])
+	// f, _ := ioutil.ReadFile(data)
 
-	md5sum1 := md5.Sum(f)
+	md5sum1 := md5.Sum(data)
 	fmt.Printf("md5:%v,len:%d\n", md5sum1, len(md5sum1))
 
 	filename := os.Args[1]
