@@ -5,7 +5,7 @@ import "fmt"
 func dup(s []string) []string {
 	n := len(s)
 	j := -1
-	for i := 0; i < n-1; i++ {
+	for i := 1; i < n-1; i++ {
 	//	fmt.Println(s[i],s[i+1])
 		if s[i] == s[i+1] {
 			s = append(s[:i], s[i+1:]...)
@@ -35,18 +35,30 @@ func dup2(s []string) []string {
 }
 
 func dup3(s []string) []string {
-	n := len(s)
-	for i := 0; i < len(s); i++ {
-		for j := i + 1; j < len(s)-n; j++ {
-			if s[j] == s[i] {
+		
 
-				copy(s[i:], s[j:])
-				n -= 1
-			}
+//		fmt.Println("=========3=======")
+		b := 0 
+		for x,y :=0,1; y < len(s);x,y= x+1,y+1 {
+
+			if s[x] == s[y] {
+//				fmt.Println(b,x,y)
+				if x ==  b {
+					b +=1
+//				fmt.Println(s)	
+				} else {
+					for i:=x;i>=b;i-- {
+					s[i+1]=s[i]
+					}
+				b +=1
+				//fmt.Println(s)
+				//fmt.Println(x,y)
+				}
+				
+				
+			}	
 		}
-
-	}
-	return s
+		return s[b:]
 }
 
 func main() {
@@ -56,6 +68,6 @@ func main() {
 	s3 := []string{"Tom", "Tom", "Tom", "Tom", "Tom", "Tom", "Make", "Make", "Tom", "JOM", "Make", "Make", "Tom", "Tom"}
 	fmt.Println(dup(s))
 	fmt.Println(dup2(s2))
-	fmt.Println(dup2(s3))
+	fmt.Println(dup3(s3))
 
 }
