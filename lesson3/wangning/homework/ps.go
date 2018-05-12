@@ -18,6 +18,7 @@ func main() {
 	}
 	path := os.Args[1]
 	f, _ := os.Open(path)
+	defer f.Close()
 
 	infos, err := f.Readdir(-2)
 	if err != nil {
@@ -39,12 +40,12 @@ func main() {
 			if err != nil {
 				log.Fatal(err)
 			}
-
+			defer fp.Close()
 			r := bufio.NewReader(fp)
 
 			cmd := ""
 			for {
-				line, _, err := r.ReadLine()
+				line, _, err := r.ReadLine('\n')
 				if err == io.EOF {
 					break
 				}
