@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'go pointer'
+git commit -m 'fib'
 git push origin master
 
