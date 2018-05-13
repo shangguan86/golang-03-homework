@@ -11,5 +11,4 @@ func main() {
 
 	md5sum := md5.Sum([]byte(file))
 	fmt.Printf("md5:%x,len:%d\n",md5sum,len(md5sum))
-
 }
