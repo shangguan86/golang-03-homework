@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'L4'
+git commit -m 'student_manager.go'
 git push origin master
 

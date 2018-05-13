@@ -84,5 +84,6 @@ func load(filename string) {
 }
 
 func usage() {
+	fmt.Println("usage:add|list|del|save|load")
 
 }
