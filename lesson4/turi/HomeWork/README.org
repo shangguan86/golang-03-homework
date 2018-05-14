@@ -1,0 +1,77 @@
+#+TITLE: 第四堂课后作业
+
+*** 作业一:
+    统计单词出现的个数(使用map),提示代码
+
+#+BEGIN_SRC go
+s := "one two three one"
+var words []string
+words = strings.Fields(s)
+#+END_SRC
+
+
+
+*** 作业二:
+
+    1. `add id name`，添加一个学生的信息，如果name有重复，报错(检查map key)
+    2. `list`, 列出所有的学生信息（range遍历map）
+    3. `save filename`，保存所有的学生信息到filename指定的文件中(json.Marshal, file write)
+    4. `load filename`, 从filename指定的文件中加载学生信息(file read, json.UnMarshal)
+
+**** 框架代码
+#+BEGIN_SRC go
+package main
+
+import (
+    "fmt"
+    "bufio"
+    "os"
+)
+
+type Student struct {
+    Id int
+    Name string
+}
+
+var students = make(map[string]Student)
+
+func main() {
+    scanner := bufio.NewScanner(os.Stdin)
+    for {
+        fmt.Print("> ")
+        scanner.Scan()
+        line := scanner.Text()
+        var cmd string
+        fmt.Sscan(line, &cmd)
+        switch cmd {
+            case "add":
+                // add 1 Tom
+                var id int
+                var name string
+                fmt.Sscan(line, &cmd, &id, &name)
+                add(id, name)
+            case "list":
+                // list:
+                // ID NAME
+                // 1  TOM
+                // 2  JACK
+            case "load":
+                // read from file
+                // json.UnMarshal -> students
+            case  "save":
+                // json.Marshal  students -> string
+                // write to file
+            case "help":
+                // print help message
+            case "exit":
+                // exit
+            default:
+                // do some stuff..
+        }
+    }
+}
+
+func add(id int, name string) {
+    students[name] = Student{Id: id, Name: name}
+}
+#+END_SRC
