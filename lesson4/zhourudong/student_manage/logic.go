@@ -118,7 +118,7 @@ func get_file_path(file_path string) string {
 	if err != nil {
 		fpath, err = filepath.Abs(filepath.Dir("."))
 		fpath = filepath.Join(fpath, "stu.json")
-		fmt.Printf("%v,文件路径不存在使用默认路径:%s\n", err, fpath)
+		fmt.Printf("文件路径不存在使用默认路径:%s\n", err, fpath)
 	}
 	return fpath
 }
