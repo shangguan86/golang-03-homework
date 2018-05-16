@@ -8,13 +8,20 @@ import (
 func main() {
 	s := "one two three one"
 	var words []string
+	word := make(map[string]int)
 	words = strings.Fields(s)
 
-	word := make(map[string]int)
-	for _, v := range words {
-		if v == v {
-			word[v] += 1
+	for _,k := range words {
+		/*
+		if k == k {
+			work[k] += 1
+		 */
+		if _,ok := word[k];ok {
+			word[k] += 1
+		}  else {
+			word[k] = 1
 		}
+
 	}
 
 	for w,c := range word {
