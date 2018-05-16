@@ -17,13 +17,30 @@ type Student struct {
 var students = make(map[string]Student)
 
 func add(id int, name string) {
-	students[name] = Student{Id: id, Name: name}
+	if _, ok := students[name]; ok {
+		fmt.Println("Name is exits")
+	} else {
+		students[name] = Student{Id: id, Name: name}
+	}
 }
 
 func list() {
 	for _, v := range students {
 		fmt.Println(v.Id, v.Name)
 	}
+}
+
+func save() string {
+	file, _ := os.Create("/tmp/stu_manager.txt")
+	buf01, err := json.Marshal(students)
+	if err != nil {
+		log.Fatal(err)
+	}
+	file.WriteString(string(buf01))
+	file.Sync()
+	defer file.Close()
+
+	return "保存成功！"
 }
 
 func main() {
@@ -47,14 +64,7 @@ func main() {
 		case "list":
 			list()
 		case "save":
-			file, _ := os.Create("/tmp/stu_manager.txt")
-			buf01, err2 := json.Marshal(students)
-			if err2 != nil {
-				log.Fatalf("marshal error:%s", err2)
-			}
-			file.WriteString(string(buf01))
-			file.Sync()
-			defer file.Close()
+			save()
 		case "reload":
 			f, err03 := ioutil.ReadFile("/tmp/stu_manager.txt")
 			if err03 != nil {
