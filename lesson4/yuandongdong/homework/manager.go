@@ -62,11 +62,26 @@ func main() {
 	}
 }
 
+//添加学生信息
 func add(id int, name string) {
+	//处理id为0或name为空的情况
+	if id == 0 {
+		fmt.Println("invalid id: ", id, "; plz check you input and try again.")
+		return
+	} else if len(name) == 0 {
+		fmt.Println("lack student name, plz check you input and try again.")
+		return
+	}
+	//判断student name是否重复
+	if _, ok := students[name]; ok {
+		fmt.Println("add student fail; ", name, "already exist.")
+		return
+	}
 	students[name] = Student{Id: id, Name: name}
 	fmt.Println("add student ", id, name, "success!")
 }
 
+//列出学生信息
 func list() {
 	if len(students) == 0 {
 		return
@@ -77,19 +92,23 @@ func list() {
 	}
 }
 
+//保存学生信息到文件
 func save(fname string) {
-	//	_, err := os.Stat(fname)
-	//if os.IsNotExist(err) {
-	f, _ := os.Create(fname)
-	//} else {
-	//	f, _ := os.OpenFile(fname, os.O_APPEND, 0666)
-	//}
-	defer f.Close()
+	var file *os.File
+	if checkFileIsExist(fname) {
+		//防止学生信息被覆盖,save之前先load学生信息
+		load(fname)
+		file, _ = os.OpenFile(fname, os.O_RDWR, 0666)
+	} else {
+		file, _ = os.Create(fname)
+	}
+	defer file.Close()
 	data, _ := json.Marshal(students)
-	fmt.Fprintf(f, string(data))
+	fmt.Fprint(file, string(data))
 
 }
 
+//从文件中读取学生信息
 func load(fname string) {
 	var data []byte
 	file, err := os.Open(fname)
@@ -100,7 +119,15 @@ func load(fname string) {
 	}
 	data, _ = ioutil.ReadAll(file)
 	err = json.Unmarshal(data, &students)
-	fmt.Println(err)
-	fmt.Println(students)
+	fmt.Println("load students infomation success!")
 
+}
+
+//判断filename文件是否存在
+func checkFileIsExist(filename string) bool {
+	var exist = true
+	if _, err := os.Stat(filename); os.IsNotExist(err) {
+		exist = false
+	}
+	return exist
 }
