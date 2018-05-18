@@ -84,6 +84,7 @@ func add(id int, name string) {
 //列出学生信息
 func list() {
 	if len(students) == 0 {
+		fmt.Println("no student infomation")
 		return
 	}
 	fmt.Println("ID NAME")
@@ -95,6 +96,11 @@ func list() {
 //保存学生信息到文件
 func save(fname string) {
 	var file *os.File
+	//没有增加学生信息，不需要保存
+	if len(students) == 0 {
+		return
+	}
+
 	if checkFileIsExist(fname) {
 		//防止学生信息被覆盖,save之前先load学生信息
 		load(fname)
