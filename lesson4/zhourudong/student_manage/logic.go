@@ -50,7 +50,8 @@ func update(old_stu_name, new_stu_name string) {
 		return
 	}
 	info.Name = new_stu_name
-	delete(students, old_stu_name)
+	// 可以直接更新
+	// delete(students, old_stu_name)
 	students[new_stu_name] = info
 	fmt.Printf("更新成功:%v\n", info)
 
