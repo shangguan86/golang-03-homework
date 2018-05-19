@@ -24,12 +24,23 @@ func main() {
 	node_a.Next = &node_b
 
 	node_a.Next.Next = &node_c
- 	node_c.Next = &node_d
+	node_c.Next = &node_d
 
 	//p := ReverseList(&node_a)
-	//printList(p)
 
 	p := &node_a
+
+	printList(p)
+
+}
+
+func ReverseList() {
+
+}
+
+//
+func printList(p *Node) {
+
 	for p != nil {
 		node := *p
 		fmt.Println(node)
@@ -37,11 +48,3 @@ func main() {
 	}
 
 }
-
-//func ReverseList() {
-//
-//}
-//
-//func printList() {
-//
-//}
