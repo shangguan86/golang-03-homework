@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'hw'
+git commit -m 'lesson5'
 git push origin master
 
