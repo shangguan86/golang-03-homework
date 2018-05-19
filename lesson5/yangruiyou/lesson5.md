@@ -5,6 +5,7 @@
 > container list
 
 
+go build -o build_goname *.go
 
 
 ## LRU CACHE 
@@ -26,3 +27,10 @@
 
 
 ## 文件读取的多种方式
+file.Read
+bufio
+
+
+## 课件地址
+
+go.dashwang.com:9000/lessons/lesson05/main
