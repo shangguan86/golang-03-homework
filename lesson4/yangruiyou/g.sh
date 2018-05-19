@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'exp'
+git commit -m 'flag'
 git push origin master
 

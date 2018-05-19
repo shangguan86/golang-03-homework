@@ -2,12 +2,17 @@ package main
 
 import (
 	"fmt"
+	"strings"
+	"log"
+	"sort"
 )
 
 func main() {
 
 	s := []int{9, 1, 9, 5, 4, 4, 2, 1, 5, 4, 8, 8, 4, 3, 6, 9, 5, 7, 5}
 	fmt.Println(UniqueInts(s))
+
+
 
 	irregularMatrix := [][]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11}, {12, 13, 14, 15}, {16, 17, 18, 19, 20}}
 	slice := Flatten(irregularMatrix)
@@ -94,6 +99,60 @@ func Make2D(s []int, columns int) [][]int {
 
 //创建一个接受[]string切片参数的函数，其中该切片包含一个.ini文件格式的内容，并返回一个map[string]map[string]类型，其键为"键-值"映射组成的映射组。
 //空行与以;开头的行需忽略。每一组在其所在的行中以一个方括号保卫的名字标识，同时每一组的键和值以一行或者更多行的"键-值"的形式给出。
-func ParseIni() {}
+func ParseIni(s []string) map[string]map[string]string {
+	const separator = "="
+	ini := make(map[string]map[string]string)
+	group := "General"
 
-func PrintIni() {}
+	for _, line := range s {
+		line := strings.TrimSpace(line)
+		if line == "" || strings.HasPrefix(line, ";") {
+			continue
+		}
+		if strings.HasPrefix(line, "[") && strings.HasSuffix(line, "]") {
+			group = line[1:len(line)-1]
+
+		} else if i := strings.Index(line, separator); i > -1 {
+			key := line[:i]
+			value := line[i+len(separator):]
+			if _, ok := ini[group]; !ok {
+				ini[group] = make(map[string]string)
+
+			}
+			ini[group][key] = value
+
+		} else {
+			log.Print("failed to parse line:", line)
+		}
+
+	}
+	return ini
+
+}
+
+func PrintIni(ini map[string]map[string]string) {
+	groups := make([]string, 0, len(ini))
+
+	for group := range ini {
+		groups = append(groups, group)
+
+	}
+	sort.Strings(groups)
+
+	for i, group := range groups {
+		fmt.Printf("[%s]\n", group)
+		keys := make([]string, 0, len(ini[group]))
+		for key := range ini[group] {
+			keys = append(keys, key)
+		}
+		sort.Strings(keys)
+		for _, key := range keys {
+			fmt.Printf("%s=%s\n", key, ini[group][key])
+
+		}
+		if i+1 < len(groups) {
+			fmt.Println()
+		}
+	}
+
+}
