@@ -51,7 +51,7 @@ func copyFileAction(src, dst string, showProgress, force bool) {
 	copyFile(src, dst)
 
 	if showProgress{
-		
+
 	}
 }
 
