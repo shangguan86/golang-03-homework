@@ -18,13 +18,13 @@ var students = make(map[string]Student)
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
+	var cmd, name string
+	var id int
+	var fname string
 	for {
 		fmt.Print("> ")
 		scanner.Scan()
 		line := scanner.Text()
-		var cmd, name string
-		var id int
-		var fname string
 		fmt.Sscan(line, &cmd)
 		switch cmd {
 		case "add":
