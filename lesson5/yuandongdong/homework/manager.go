@@ -51,16 +51,7 @@ func main() {
 			save(fname)
 		case "help":
 			// print help message
-			fmt.Println(`
-			usage:
-			add id name: 新增学生
-			update id name：修改学生ID
-			delete name：删除学生
-			list：列出所有学生
-			save filename：保存学生信息到文件中
-			load filename：从文件中加载学生信息
-			exit:退出
-			`)
+			help()
 		case "exit":
 			// exit
 			os.Exit(1)
@@ -150,6 +141,19 @@ func checkError(err error) {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func help() {
+	fmt.Println(`
+	usage:
+	add id name: 新增学生
+	update id name：修改学生ID
+	delete name：删除学生
+	list：列出所有学生
+	save filename：保存学生信息到文件中
+	load filename：从文件中加载学生信息
+	exit:退出
+	`)
 }
 
 //更新学生信息
