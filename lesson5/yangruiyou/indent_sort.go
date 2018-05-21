@@ -24,7 +24,7 @@ func (entries Entries) Swap(i, j int) {
 }
 
 func populateEntries(slice []string)Entries{
-	
+
 }
 
 func SortedIndentedStrings(slice []string)[]string{
