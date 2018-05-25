@@ -21,12 +21,7 @@ func checkErr(err error) {
 		log.Fatal(err)
 	}
 }
-//func save(filename string) {
-//	file, err := os.Create("StudentSystem.txt")
-//	defer file.Close()
-//	checkErr(err)
-//	file.WriteString(filename)
-//}
+
 func usage(){
 	fmt.Printf(`
 Usage:

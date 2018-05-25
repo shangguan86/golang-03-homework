@@ -1,18 +1,10 @@
 package main
 
-import (
-	"fmt"
-	"log"
-	"net/http"
-)
+import "fmt"
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "hello, world!")
-}
-
-func main() {
-	log.Println("Staring http server on localhost:8080")
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080",nil)
+func main(){
+	fmt.Println("hello,world!")
+	fmt.Println("hello,go语言！")
+	fmt.Println("hello,你好，中国！")
 }
 
