@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'chain'
+git commit -m 'stu manage'
 git push origin master
 
