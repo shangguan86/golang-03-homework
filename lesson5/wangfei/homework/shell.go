@@ -8,7 +8,6 @@ import (
 	"strings"
 )
 
-
 func main() {
 	host, _ := os.Hostname()
 	prompt := fmt.Sprintf("[51reboot@%s]# ", host)

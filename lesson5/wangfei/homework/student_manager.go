@@ -86,9 +86,9 @@ func update(id int, name string) {
 		return
 	}
 
-	if _, ok := students[name]; ok {
+	if _, ok := students[namfe]; ok {
 		add(id, name)
-		fmt.Print("update %s is successed!\n", name)
+		fmt.Printf("update %s is successed!\n", name)
 		list()
 	} else {
 		fmt.Printf("%s is not exist!\n", name)
@@ -104,6 +104,8 @@ func main() {
 		line := scanner.Text()
 		var cmd string
 		fmt.Sscan(line, &cmd)
+		var id int
+		var name string
 
 		switch cmd {
 
@@ -111,8 +113,6 @@ func main() {
 			usage()
 
 		case "add":
-			var id int
-			var name string
 			fmt.Sscan(line, &cmd, &id, &name)
 			add(id, name)
 
@@ -123,13 +123,10 @@ func main() {
 			save()
 
 		case "delete":
-			var name string
 			fmt.Sscan(line, &cmd, &name)
 			remove(name)
 
 		case "update":
-			var id int
-			var name string
 			fmt.Sscan(line, &cmd, &id, &name)
 			update(id, name)
 
