@@ -19,6 +19,9 @@ var students = make(map[string]Student)
 var dbfile = "students.db"
 
 func main() {
+	var id string
+	var uid int
+	var name string
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Printf("> ")
@@ -29,9 +32,9 @@ func main() {
 		switch cmd {
 		case "add":
 			// add 1 Tom
-			var id string
-			var uid int
-			var name string
+			//var id string
+			//var uid int
+			//var name string
 			fmt.Sscan(line, &cmd, &id, &name)
 			uid, err := strconv.Atoi(id)
 			if err != nil {
@@ -41,19 +44,19 @@ func main() {
 			add(uid, name)
 		case "update":
 			// update 1 Tom
-			var id string
-			var uid int
-			var name string
+			//var id string
+			//var uid int
+			//var name string
 			fmt.Sscan(line, &cmd, &id, &name)
 			uid, err := strconv.Atoi(id)
 			if err != nil {
 				fmt.Println("Id not a number")
 				continue
 			}
-			update(uid,name)
+			update(uid, name)
 		case "del":
 			// del  Tom
-			var name string
+			//var name string
 			fmt.Sscan(line, &cmd, &name)
 			if name == "" {
 				fmt.Println("没有指定需删除的用户")
@@ -106,10 +109,10 @@ func save(dbfile string, stu map[string]Student) (status bool, err error) {
 	}
 	//fmt.Println(string(buf))
 	var w1 = []byte(string(buf))
-	err2 := ioutil.WriteFile(dbfile, w1, 0666)
-	if err2 != nil {
+	err = ioutil.WriteFile(dbfile, w1, 0666)
+	if err != nil {
 
-		return false, err2
+		return false, err
 
 	}
 	return true, nil
@@ -118,16 +121,14 @@ func save(dbfile string, stu map[string]Student) (status bool, err error) {
 func load(dbname string) (status bool, err error) {
 
 	f, err := ioutil.ReadFile(dbname)
+	defer f.Close()
 	if err != nil {
 		return false, err
 	}
-	var s map[string]Student
-	s = make(map[string]Student)
-	err1 := json.Unmarshal([]byte(f), &s)
-	if err1 != nil {
-		return false, err1
+	err = json.Unmarshal([]byte(f), &students)
+	if err != nil {
+		return false, err
 	}
-	students = s
 	return true, nil
 }
 
