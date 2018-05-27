@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'add lesson6 direc'
+git commit -m 'lru,sort'
 git push origin master
 
