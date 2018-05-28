@@ -27,15 +27,18 @@ func main() {
 			fmt.Println("exit my shell")
 			os.Exit(1)
 		}
+		//todo : chdir()
+
 		args := strings.Fields(line)
 		cmd := exec.Command(args[0], args[1:]...)
-		//		cmd.Stdin = os.Stdin
+		cmd.Stdin = os.Stdin
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 		err := cmd.Run()
 		fmt.Print(prompt)
 		if err != nil {
 			fmt.Println(err)
+			fmt.Print(prompt)
 		}
 	}
 
