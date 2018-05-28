@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'lru,sort'
+git commit -m 'chain operation'
 git push origin master
 
