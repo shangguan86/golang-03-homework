@@ -37,43 +37,44 @@ func Constructor(capacity int) *LRUCache {
 	return lru
 }
 
-func (this *LRUCache) Get(key Key) Value {
-	if node, ok := this.kvMap[key]; ok {
-		this.moveToHead(node)
+func (lru *LRUCache) Get(key Key) Value {
+	if node, ok := lru.kvMap[key]; ok {
+		lru.moveToHead(node)
 		return node.value
 	}
 	return -1
 }
 
-func (this *LRUCache) Put(key Key, value Value) {
-	if node, ok := this.kvMap[key]; ok {
+func (lru *LRUCache) Put(key Key, value Value) {
+	if node, ok := lru.kvMap[key]; ok {
 		node.value = value
-		this.moveToHead(node)
+		lru.moveToHead(node)
 	} else {
 		node = new(Node)
 		node.key = key
 		node.value = value
-		this.addNode(node)
+		lru.addNode(node)
 
-		if this.Capacity < len(this.kvMap) {
-			this.popTail()
+		if lru.Capacity < len(lru.kvMap) {
+			lru.popTail()
 		}
 
 	}
 
 }
 
-func (this *LRUCache) popTail() {
-	this.removeNode(this.tail.prev)
+func (lru *LRUCache) popTail() {
+	lru.removeNode(lru.tail.prev)
 }
 
-func (this *LRUCache) moveToHead(node *Node) {
-	this.removeNode(node)
-	this.addNode(node)
+func (lru *LRUCache) moveToHead(node *Node) {
+	lru.removeNode(node)
+	lru.addNode(node)
 }
 
-func (this *LRUCache) removeNode(node *Node) {
-	delete(this.kvMap, node.key)
+//remove node
+func (lru *LRUCache) removeNode(node *Node) {
+	delete(lru.kvMap, node.key)
 
 	prev := node.prev
 	next := node.next
@@ -82,14 +83,16 @@ func (this *LRUCache) removeNode(node *Node) {
 	next.prev = prev
 }
 
-func (this *LRUCache) addNode(node *Node) {
-	node.prev = this.head
-	node.next = this.head.next
+//add node
+//always add node behind head
+func (lru *LRUCache) addNode(node *Node) {
+	node.prev = lru.head
+	node.next = lru.head.next
 
-	this.head.next.prev = node
-	this.head.next = node
+	lru.head.next.prev = node
+	lru.head.next = node
 
-	this.kvMap[node.key] = node
+	lru.kvMap[node.key] = node
 }
 
 func main() {
