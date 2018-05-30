@@ -19,8 +19,22 @@ func (node TreeNode) PrintTree() {
 	fmt.Println(node.Value)
 }
 
+//使用指针改变结构内容，nil指针可以调用方法
+
 func (node *TreeNode) SetValue(value int) {
+	if node == nil {
+		fmt.Println("nil node")
+	}
 	node.Value = value
+}
+
+func (node *TreeNode) Traverse() {
+	if node == nil {
+		return
+	}
+	node.Left.Traverse()
+	node.PrintTree()
+	node.Right.Traverse()
 }
 
 func main() {
@@ -35,4 +49,13 @@ func main() {
 	root.Right.Left.PrintTree()
 
 	fmt.Println()
+
+	root.Traverse()
 }
+
+
+//要改变内容必须使用指针接受者
+//结构过大考虑使用指针接收者
+//值接收者 为go语言特有
+
+//值/指针接收者 均可接收值/指针
