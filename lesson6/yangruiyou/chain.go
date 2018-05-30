@@ -35,7 +35,7 @@ func main() {
 	//stu1.next = stu2
 	//stu2.next = stu3
 	//InsertTailChain(&head)
-	InsertHeadChain(head)
+	InsertHeadChain(&head)
 	SelectChain(head)
 
 }
@@ -65,7 +65,7 @@ func InsertTailChain(p *Student) {
 }
 
 //链表头部插入
-func InsertHeadChain(p *Student) {
+func InsertHeadChain(p **Student) {
 	for i := 0; i < 10; i++ {
 
 		stu := &Student{
@@ -73,8 +73,21 @@ func InsertHeadChain(p *Student) {
 			Age:   rand.Intn(100),
 			Score: rand.Float32() * 100,
 		}
-		stu.next = p
-		p.next= stu
+		stu.next = *p
+		*p = stu
 
 	}
 }
+
+func deleteNodeChain(p *Student) {
+	var prev *Student = p
+	for p != nil {
+		if (p.Name == "stu6") {
+			prev.next = p.next
+			break
+		}
+		prev = p
+		p = p.next
+	}
+}
+

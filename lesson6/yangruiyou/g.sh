@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'chain operation'
+git commit -m 'tree'
 git push origin master
 
