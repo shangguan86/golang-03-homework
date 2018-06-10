@@ -4,6 +4,6 @@
 
 git pull origin master
 git add .
-git commit -m 'httpPS add'
+git commit -m 'goyard add'
 git push origin master
 

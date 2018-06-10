@@ -4,33 +4,32 @@ import (
 	"os/exec"
 	"bufio"
 	"fmt"
-	"net/http"
 )
 
 func main() {
 	execCommand()
-	http.HandleFunc("/ps", execPS)
-	http.ListenAndServe(":9000", nil)
+	//http.HandleFunc("/ps", execPS)
+	//http.ListenAndServe(":9000", nil)
 
 }
 
-func execPS(w *http.ResponseWriter, req *http.Request) {
-	//
+//func execPS(w *http.ResponseWriter, req *http.Request) {
+//	//
+//
+//}
 
-}
-
-func execCommand() {
+func execCommand()string{
 	cmd := exec.Command("/bin/bash", "-c", `ps`)
 	stdout, err := cmd.StdoutPipe()
 
 	if err != nil {
 		fmt.Printf("%s\n", err)
-		return
+		// return
 	}
 
 	if err := cmd.Start(); err != nil {
 		fmt.Printf("%s\n", err)
-		return
+		// return
 	}
 
 	outPutBuf := bufio.NewReader(stdout)
@@ -38,13 +37,14 @@ func execCommand() {
 		output, _, err := outPutBuf.ReadLine()
 		if err != nil {
 			fmt.Printf("%s\n", err)
-			return
+			// return
 		}
 
-		fmt.Printf("%s\n", string(output))
+		//fmt.Printf("%s\n", string(output))
+		return string(output)
 	}
 	if err := cmd.Wait(); err != nil {
 		fmt.Printf("%s\n", err)
-		return
+		// return
 	}
 }
