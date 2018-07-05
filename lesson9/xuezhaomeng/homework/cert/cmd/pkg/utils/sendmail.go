@@ -44,7 +44,6 @@ func SendEmail(email *Email) error {
 				[]string{v},
 				[]byte(str),
 			)
-			fmt.Println(err)
 			done <- err
 		}
 	}()
